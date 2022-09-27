@@ -8,9 +8,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.Middleware.MiddlewareApp.entities.User;
 
-@Component						 //essa URL possui porta randômica, a aplicação no qual se faz requisição encontra-se no servidor Eureka.
-@FeignClient(name = "User-App" , url = "http://host.docker.internal:62911/", path = "/users")
+@Component						 
+@FeignClient(name = "User-App", path = "/users")
 public interface UserFeignClient {
 	@GetMapping(value = "/{id}")
 	ResponseEntity<User> findById(@PathVariable long id);
 }
+
