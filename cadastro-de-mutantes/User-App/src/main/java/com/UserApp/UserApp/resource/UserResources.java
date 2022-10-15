@@ -17,7 +17,7 @@ import com.UserApp.UserApp.entities.User;
 import com.UserApp.UserApp.service.UserService;
 
 @Controller
-@RequestMapping(value = "/users")
+@RequestMapping(value = "/mutantes")
 public class UserResources {
 
 	@Autowired
