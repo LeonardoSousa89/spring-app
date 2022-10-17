@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,4 +33,11 @@ public class AdminController {
 		List <Administrator> registros=service.getAccount();
 		return ResponseEntity.status(HttpStatus.OK).body(registros);
 	}
+	
+	@GetMapping(value = "/{id}/conta/registro-de-mutantes")
+	public ResponseEntity<Administrator> findByid(@PathVariable Long id) {
+		Administrator registros=service.findById(id);
+		return ResponseEntity.status(HttpStatus.OK).body(registros);
+	}
+	
 }

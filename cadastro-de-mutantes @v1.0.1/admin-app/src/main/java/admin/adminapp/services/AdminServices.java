@@ -22,4 +22,8 @@ public class AdminServices {
 		return repository.findAll();
 	}
 	
+	public Administrator findById(Long id) {
+		return repository.findById(id).get();
+	}
+	
 }
