@@ -1,0 +1,32 @@
+[
+	[{
+		"nome":"William Styker",
+		"email":"tolerancia0@outlook.com",
+		"senha":"1234"
+	},{
+		"nome":"Graydon creed",
+		"email":"creed@outlook.com",
+		"senha":"1234"
+	}],
+		{
+			"pais":"Canada",
+			"uf":"Toronto",
+			"cidade":"Ottawa",
+			"nome":"Logan",
+			"habilidade":"Regeneração e garras de osso."
+		},
+		{
+			"pais":"Eua",
+			"uf":"NY",
+			"cidade":"Manhattan",
+			"nome":"Charles Francis Xavier",
+			"habilidade":"telepatia e psicosinese."
+		},
+		{
+			"pais":"Eua",
+			"uf":"Mississipi",
+			"cidade":"Caldecott County",
+			"nome":"Ana Marie",
+			"habilidade":"absorção orgânica por contato fisíco."
+		}
+]
