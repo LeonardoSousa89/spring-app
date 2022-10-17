@@ -1,5 +1,7 @@
 package admin.adminapp.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,10 @@ public class MutanteService {
 	
 	public Mutantes insetMutanteRegister(Mutantes mutante) {
 		return repository.save(mutante);
+	}
+	
+	public List<Mutantes> getMutante() {
+		return repository.findAll();
 	}
 	
 }

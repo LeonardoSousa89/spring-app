@@ -5,12 +5,9 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -20,7 +17,7 @@ public class Administrator {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long idadmin;
 	private String nome;
 	
 	@Column(unique = true)
@@ -28,28 +25,24 @@ public class Administrator {
 	
 	private String senha;
 	
-	@OneToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "registro",
-		joinColumns = @JoinColumn(name = "id"),
-		inverseJoinColumns = @JoinColumn(name = "id_mutantes")			
-	)
+	@OneToMany(mappedBy = "id_admin")
 	private Set<Mutantes> registroDeMutantes=new HashSet<>();
 	
 	public Administrator() {}
 
-	public Administrator(Long id, String nome, String email, String senha) {
-		this.id = id;
+	public Administrator(Long idadmin, String nome, String email, String senha) {
+		this.idadmin = idadmin;
 		this.nome = nome;
 		this.email = email;
 		this.senha = senha;
 	}
 
-	public Long getId() {
-		return id;
+	public Long getIdadmin() {
+		return idadmin;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setIdadmin(Long idadmin) {
+		this.idadmin = idadmin;
 	}
 
 	public String getNome() {
@@ -84,7 +77,7 @@ public class Administrator {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((idadmin == null) ? 0 : idadmin.hashCode());
 		return result;
 	}
 
@@ -97,10 +90,10 @@ public class Administrator {
 		if (getClass() != obj.getClass())
 			return false;
 		Administrator other = (Administrator) obj;
-		if (id == null) {
-			if (other.id != null)
+		if (idadmin == null) {
+			if (other.idadmin != null)
 				return false;
-		} else if (!id.equals(other.id))
+		} else if (!idadmin.equals(other.idadmin))
 			return false;
 		return true;
 	}
