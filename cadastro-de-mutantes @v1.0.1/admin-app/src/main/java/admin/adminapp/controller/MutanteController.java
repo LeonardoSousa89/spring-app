@@ -24,8 +24,8 @@ public class MutanteController {
 	
 	@PostMapping(value = "/{id}/registro-de-mutantes")
 	public ResponseEntity<Mutantes> createAccount(@PathVariable Long id, @RequestBody Mutantes mutante) {
-		Mutantes registered=service.insetMutanteRegister(mutante);
-		return ResponseEntity.status(HttpStatus.CREATED).body(registered);
+			Mutantes registered=service.insetMutanteRegister(mutante);
+			return ResponseEntity.status(HttpStatus.CREATED).body(registered);
 	}
 	
 	@GetMapping(value = "/all/mutantes/registro-de-mutantes")

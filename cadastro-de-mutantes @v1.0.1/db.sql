@@ -17,9 +17,11 @@ DROP TABLE admin;
 INSERT INTO admin VALUES(1, 'William Stryker', 'stryker@gmail.com',1234);
 INSERT INTO admin VALUES(2, 'Greydon Creed', 'tolerancia0@gmail.com',1234);
 
+SELECT * FROM admin;
+
 
 CREATE TABLE IF NOT EXISTS mutantes(
-	id_mutante SERIAL,
+	id_mutante SERIAL PRIMARY KEY,
 	pais VARCHAR(100),
 	uf VARCHAR(100),
 	cidade VARCHAR(100),
@@ -38,8 +40,6 @@ INSERT INTO mutantes VALUES(3, 'Eua', 'Mississipi', 'Caldecott County', 'Ana Mar
 SELECT * FROM mutantes;
 
 
-SELECT * FROM admin;
-
 SELECT  a.nome, 
 	a.email,
 	m.nome,
@@ -51,6 +51,8 @@ FROM admin a
 INNER JOIN mutantes m
 ON a.idadmin=m.id_admin;
 
+
+DELETE FROM mutantes;
 
 
 

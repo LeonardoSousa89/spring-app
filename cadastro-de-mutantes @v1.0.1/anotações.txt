@@ -1,6 +1,7 @@
 https://stackabuse.com/how-to-return-http-status-codes-in-a-spring-boot-application/
 https://www.devmedia.com.br/hibernate-mapping-mapeando-relacionamentos-entre-entidades/29445
 https://github.com/acenelio/ms-course
+https://itecnote.com/tecnote/java-json-parse-error-cannot-construct-instance-of-com-example-greetapp-domain-user/
 
 #games
 https://jam.gg/play/

@@ -9,24 +9,27 @@
 		"senha":"1234"
 	}],
 		{
-			"pais":"Canada",
+			"pais":"Canadá",
 			"uf":"Toronto",
 			"cidade":"Ottawa",
 			"nome":"Logan",
-			"habilidade":"Regeneração e garras de osso."
+			"habilidade":"Regeneração e garras de osso.",
+			 "id_admin":1
 		},
 		{
 			"pais":"Eua",
 			"uf":"NY",
 			"cidade":"Manhattan",
 			"nome":"Charles Francis Xavier",
-			"habilidade":"telepatia e psicosinese."
+			"habilidade":"telepatia e psicosinese.",
+			"id_admin":1
 		},
 		{
 			"pais":"Eua",
 			"uf":"Mississipi",
 			"cidade":"Caldecott County",
 			"nome":"Ana Marie",
-			"habilidade":"absorção orgânica por contato fisíco."
+			"habilidade":"absorção orgânica por contato fisíco.",
+			"id_admin":2
 		}
 ]

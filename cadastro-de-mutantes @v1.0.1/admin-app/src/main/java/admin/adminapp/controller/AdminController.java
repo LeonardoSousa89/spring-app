@@ -23,8 +23,8 @@ public class AdminController {
 	
 	@PostMapping(value = "/cadastro")
 	public ResponseEntity<Administrator> createAccount(@RequestBody Administrator user) {
-		Administrator account=service.createAccount(user);
-		return ResponseEntity.status(HttpStatus.CREATED).body(account);
+			 Administrator account=service.createAccount(user);
+			 return ResponseEntity.status(HttpStatus.CREATED).body(account);
 	}
 	
 	@GetMapping(value = "/all/conta/registro-de-mutantes")
