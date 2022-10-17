@@ -14,12 +14,16 @@ public class MutanteService {
 	@Autowired
 	private MutanteRepository repository;
 	
-	public Mutantes insetMutanteRegister(Mutantes mutante) {
+	public Mutantes insertMutanteRegister(Mutantes mutante) {
 		return repository.save(mutante);
 	}
 	
 	public List<Mutantes> getMutante() {
 		return repository.findAll();
+	}
+	
+	public Mutantes findById(Long id) {
+		return repository.findById(id).get();
 	}
 	
 }

@@ -27,7 +27,7 @@ public class Administrator {
 	
 	private String senha;
 	
-	//se inserir essa assinatura[@JsonIgnore] na classe mutantes, ele envia o objeto de referencia como nulo não associando as classes.
+	//se inserir essa assinatura[@JsonIgnore] na classe mutantes, ele envia o objeto de referência como nulo não associando as classes.
 	@JsonIgnore
 	@OneToMany(mappedBy = "id_admin")
 	private Set<Mutantes> registroDeMutantes=new HashSet<>();

@@ -23,14 +23,20 @@ public class MutanteController {
 	private MutanteService service;
 	
 	@PostMapping(value = "/{id}/registro-de-mutantes")
-	public ResponseEntity<Mutantes> createAccount(@PathVariable Long id, @RequestBody Mutantes mutante) {
-			Mutantes registered=service.insetMutanteRegister(mutante);
+	public ResponseEntity<Mutantes> insertMutanteRegister(@PathVariable Long id, @RequestBody Mutantes mutante) {
+			Mutantes registered=service.insertMutanteRegister(mutante);
 			return ResponseEntity.status(HttpStatus.CREATED).body(registered);
 	}
 	
 	@GetMapping(value = "/all/mutantes/registro-de-mutantes")
 	public ResponseEntity<List<Mutantes>> getMutantes() {
 		List<Mutantes> mutantes=service.getMutante();
+		return ResponseEntity.status(HttpStatus.OK).body(mutantes);
+	}
+	
+	@GetMapping(value = "/{id}/mutantes/registro-de-mutantes")
+	public ResponseEntity<Mutantes> findById(@PathVariable Long id) {
+		Mutantes mutantes=service.findById(id);
 		return ResponseEntity.status(HttpStatus.OK).body(mutantes);
 	}
 	
