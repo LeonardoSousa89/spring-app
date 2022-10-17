@@ -41,12 +41,12 @@ SELECT * FROM mutantes;
 
 
 SELECT  a.nome, 
-	a.email,
-	m.nome,
-	m.pais, 
-	m.uf,
-	m.cidade,
-	m.habilidade
+		a.email,
+		m.nome,
+		m.pais, 
+		m.uf,
+		m.cidade,
+		m.habilidade
 FROM admin a
 INNER JOIN mutantes m
 ON a.idadmin=m.id_admin;
