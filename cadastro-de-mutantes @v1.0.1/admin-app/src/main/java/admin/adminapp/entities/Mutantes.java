@@ -26,7 +26,6 @@ public class Mutantes implements Serializable{
 	private String nome;
 	private String habilidade;
 	
-
 	@ManyToOne
 	@JoinColumn(name = "id_admin")
 	private Administrator id_admin;

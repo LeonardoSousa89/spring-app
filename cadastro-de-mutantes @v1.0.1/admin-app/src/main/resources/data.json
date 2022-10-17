@@ -14,7 +14,9 @@
 			"cidade":"Ottawa",
 			"nome":"Logan",
 			"habilidade":"Regeneração e garras de osso.",
-			 "id_admin":1
+            "id_admin":{
+                "idadmin":1
+            }
 		},
 		{
 			"pais":"Eua",
@@ -22,7 +24,9 @@
 			"cidade":"Manhattan",
 			"nome":"Charles Francis Xavier",
 			"habilidade":"telepatia e psicosinese.",
-			"id_admin":1
+			 "id_admin":{
+                "idadmin":1
+            }
 		},
 		{
 			"pais":"Eua",
@@ -30,6 +34,8 @@
 			"cidade":"Caldecott County",
 			"nome":"Ana Marie",
 			"habilidade":"absorção orgânica por contato fisíco.",
-			"id_admin":2
+			 "id_admin":{
+                "idadmin":2
+            }
 		}
 ]
