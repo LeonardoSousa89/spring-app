@@ -1,0 +1,140 @@
+https://stackabuse.com/how-to-return-http-status-codes-in-a-spring-boot-application/
+https://www.devmedia.com.br/hibernate-mapping-mapeando-relacionamentos-entre-entidades/29445
+https://github.com/acenelio/ms-course
+https://itecnote.com/tecnote/java-json-parse-error-cannot-construct-instance-of-com-example-greetapp-domain-user/
+https://www.baeldung.com/spring-data-jpa-query
+https://docs.spring.io/spring-data/jpa/docs/current/reference/html/
+
+#games
+https://jam.gg/play/
+https://www.retrogames.onl/
+http://www.worldgame.com.br/page-41.html
+https://www.emulatorgames.net/roms/
+
+
+		spring security [códigos iniciais]
+
+URL da aula
+https://www.youtube.com/watch?v=t6prPki7daU&t=1342s
+
+esqueleto inicial ------------------------*---------------------------
+
+
+
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+//@EnableWebSecurity (desativa as configs padrões do webSecurity e só ultiliza as personalizadas pelo developer.)
+@Configuration
+public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter{  
+
+   //autoriza somente com autenticação e desabilita o csrf(caso de dúvida pesquise)
+   @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.httpBasic().and().authorizeRequests().anyRequest().fullyAuthenticated().and().csrf().disable();
+   }
+
+   //configura usuário e senha em memória sem essa função o usuário e senha são gerados automáticamente.
+   @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.inMemoryAuthentication().withUser("mendes").password(passworEncoder().encode("1234")).roles("ADMIN");
+   }
+
+   //codifica corretamente a senha com o Bcrypt
+    @Bean
+    public PasswordEncoder passworEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+ }   
+
+
+
+configuração de CORS ------------------------*---------------------------
+
+
+import java.util.Arrays;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
+@Configuration
+@EnableWebSecurity
+public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter{  
+
+	  
+	@Autowired
+	private Environment env;
+
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		if (Arrays.asList(env.getActiveProfiles()).contains("test")) {
+			http.headers().frameOptions().disable();
+		}
+		
+		http.cors().and().csrf().disable();
+		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+		http.authorizeRequests().anyRequest().permitAll();
+	}
+
+	@Bean
+	CorsConfigurationSource corsConfigurationSource() {
+		CorsConfiguration configuration = new CorsConfiguration().applyPermitDefaultValues();
+		configuration.setAllowedMethods(Arrays.asList("POST", "GET", "PUT", "DELETE", "OPTIONS"));
+		final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+		source.registerCorsConfiguration("/**", configuration);
+		return source;
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
