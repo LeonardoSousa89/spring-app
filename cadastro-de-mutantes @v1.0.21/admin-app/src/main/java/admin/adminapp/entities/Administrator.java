@@ -13,9 +13,12 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 @Entity
 @Table(name = "admin")
-public class Administrator {
+public class Administrator{
+	
+	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,11 +30,14 @@ public class Administrator {
 	
 	private String senha;
 	
-	//se inserir essa assinatura[@JsonIgnore] na classe mutantes, ele envia o objeto de referência como nulo não associando as classes.
+	/*se inserir essa assinatura[@JsonIgnore] na classe mutantes, 
+	 * ele envia o objeto de referência como nulo não associando as classes.
+	 */
+	
 	@JsonIgnore
 	@OneToMany(mappedBy = "id_admin")
 	private Set<Mutantes> registroDeMutantes=new HashSet<>();
-	
+
 	public Administrator() {}
 
 	public Administrator(Long idadmin, String nome, String email, String senha) {
@@ -76,7 +82,7 @@ public class Administrator {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

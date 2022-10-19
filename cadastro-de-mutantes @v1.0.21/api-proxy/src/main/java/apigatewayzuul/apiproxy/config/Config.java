@@ -17,7 +17,16 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 @Configuration
 @EnableWebSecurity
 public class Config extends WebSecurityConfigurerAdapter {
-
+	
+	/*
+	 * neste projeto não utilizarei o api-gateway,
+	 * pois será necessário criar uma requisição de user com Feign Client,
+	 * para que a segurança se centralize em somente um endpoint,
+	 * nos dois endpoints ADMIN e API-PROXY, não passarei pois ambos,
+	 * possuem o webSecurity e 2 users e pass diferentes,
+	 *tornando inviável meu acesso.
+	 * */
+	
 	@Autowired
 	private Environment env;
 

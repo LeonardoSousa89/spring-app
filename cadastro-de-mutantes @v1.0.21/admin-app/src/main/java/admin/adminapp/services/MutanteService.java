@@ -25,5 +25,6 @@ public class MutanteService {
 	public Mutantes findById(Long id) {
 		return repository.findById(id).get();
 	}
+
 	
 }
